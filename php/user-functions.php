@@ -3,13 +3,11 @@
 function displayUser($user) {
 	$userInfo = $user->getInfo();
 
-	$title = $userInfo['first_name'] . " '" . $userInfo['alias'] . "' " . $userInfo['last_name'];
-
 	$profile_pic_url = expandPPURL($userInfo['profile_pic_url']);
 
 	echo "<img src='" . $profile_pic_url . "'></img>";
 	echo '<br/>';
-	echo 'Name: ' . $title;
+	echo 'Name: ' . $userInfo['alias'];
 	echo '<br/>';
 	echo 'User since: ' . $userInfo['registration'];
 	echo '<br/>';

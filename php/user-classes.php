@@ -5,7 +5,7 @@ class User {
 	protected $_steamId;
 	protected $_userInfo;
 
-	public function __constructor($steamid) {
+	public function __construct($steamid) {
 		require_once 'database.php';
 		global $dbh;
 
@@ -26,15 +26,14 @@ class User {
 
 		$userData = $userResult[0];
 
-		$this->_steamid = $this->_userInfo['steamid'] = $userData['user_steamid'];
-
-		$this->_userInfo['first_name'] = $userData['user_first_name'];
-		$this->_userInfo['last_name'] = $userData['user_last_name'];
+		$this->_steamId = $this->_userInfo['steamid'] = $userData['user_steamid'];
 		$this->_userInfo['alias'] = $userData['user_alias'];
 		$this->_userInfo['email'] = $userData['user_email'];
-		$this->_userInfo['registration'] = $userData['registration_time'];
+		$this->_userInfo['registration'] = $userData['user_registration'];
 		$this->_userInfo['profile_pic_url'] = $userData['user_profile_pic_url'];
 	}
+
+
 
 	//GETTERS
 	public function getSteam() {
@@ -48,11 +47,10 @@ class User {
 	public function registered() {
 		return $this->_userRegistered;
 	}
-
 }
 
 class LoggedInUser extends User {
-	public function register($userInfo) {;
+	public function register($userInfo) {
 		if (!$this->registered()) {
 			require_once 'database.php';
 			global $dbh;
