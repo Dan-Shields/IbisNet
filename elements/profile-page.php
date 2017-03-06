@@ -9,7 +9,14 @@
                 <img class="profile-img" src=<?php echo "'" . $userForDisplay->getInfo()['profile_pic_url'] . "'"; ?>>
                 <div class="app-title">
                     <div class="title"><span class="highlight"><?php echo $userForDisplay->getInfo()['alias'];?></span></div>
-                    <div class="description"></div>
+                    <div class="description">
+                    <?php
+                        if ($userForDisplay->getInfo()['level'] === '1') {
+                            echo "<span class='label label-danger'>Owner</span>";
+                        }
+
+                    ?>
+                    </div>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@
 		$newUserInfo['steamid'] = $_SESSION['steamid'];
 		$newUserInfo['alias'] = htmlspecialchars(strip_tags($_POST['alias']));
 		$newUserInfo['email'] = htmlspecialchars(strip_tags($_POST['email']));
-		$newUserInfo['profile_pic_url'] = substr($steamprofile['avatarmedium'], 72, 40);
+		$newUserInfo['profile_pic_url'] = substr($steamprofile['avatarmedium'], 69, 43);
 
 		if ($newUser->register($newUserInfo)) {
 			header('Location: http://localhost/ksp');

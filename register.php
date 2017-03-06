@@ -72,12 +72,26 @@ if (isset($_SESSION['steamid'])) {
         </div>
         <div class="app-form">
           <div class="form-suggestion">
-            Create an account for free.
-          </div>
+          
           <?php 
           if (!isset($_SESSION['steamid'])) {
+            echo "Please sign in first.";
+            echo "</div>";
+            echo loginButton('rectangle');
+          } else {
+            if ($loggedInUser->registered()) {
+              echo "You are already registered!";
+              echo "</div>";
+            } else {
+              echo "Hi <b>" . $steamprofile['personaname'] . "</b>, create an account for free.";
+              echo "</div>";
+              require 'elements/registration-form.php'; 
+            }
+          }
 
-          elserequire 'elements/registration-form.php'; ?>
+
+          //else
+          ?>
         </div>
       </div>
     </div>
@@ -89,7 +103,7 @@ if (isset($_SESSION['steamid'])) {
   </div>
   
   <script type="text/javascript" src="./assets/js/vendor.js"></script>
-  <script type="text/javascript" src="./assets/js/app.js"></script>
+  <!--<script type="text/javascript" src="./assets/js/app.js"></script>-->
 
 </body>
 </html>

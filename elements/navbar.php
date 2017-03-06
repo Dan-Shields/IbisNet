@@ -63,15 +63,13 @@
     	<?php
     	if (!isset($_SESSION['steamid'])) {
     		echo "<li>";
-			echo loginButton('rectangle');
-			echo "</li>";
-		} else {
-			if ($loggedInUser->registered()) {
+        echo loginButton('rectangle');
+        echo "</li>";
+		  } else {
 				echo "<li class='dropdown profile'>";
 				require "elements/profile-dropdown.php";
 				echo "</li>";
-			}
-		}
+		  }
 
 		?>
       </ul>

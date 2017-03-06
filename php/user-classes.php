@@ -29,11 +29,10 @@ class User {
 		$this->_steamId = $this->_userInfo['steamid'] = $userData['user_steamid'];
 		$this->_userInfo['alias'] = $userData['user_alias'];
 		$this->_userInfo['email'] = $userData['user_email'];
+		$this->_userInfo['level'] = $userData['user_level'];
 		$this->_userInfo['registration'] = $userData['user_registration'];
-		$this->_userInfo['profile_pic_url'] = expandPPURL($userData['user_profile_pic_url']);
+		$this->_userInfo['profile_pic_url'] = 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/' . $userData['user_profile_pic_url'] . '_medium.jpg';
 	}
-
-
 
 	//GETTERS
 	public function getSteam() {

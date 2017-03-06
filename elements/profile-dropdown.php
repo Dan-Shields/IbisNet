@@ -1,20 +1,24 @@
-<?php
-  $userInfo = $loggedInUser->getInfo();
-?>
-
 <a href="/html/pages/profile.html" class="dropdown-toggle"  data-toggle="dropdown">
-  <img class="profile-img" src=<?php echo "'" . $userInfo['profile_pic_url'] . "'"; ?>>
+  <img class="profile-img" src=<?php echo "'" . $steamprofile['avatarmedium'] . "'"; ?>>
   <div class="title">Profile</div>
 </a>
 <div class="dropdown-menu">
   <div class="profile-info">
-    <h4 class="username"><?php echo $userInfo['alias'];?></h4>
+    <h4 class="username"><?php echo $steamprofile['personaname'];?></h4>
   </div>
   <ul class="action">
     <li>
-      <a href=<?php echo "'profile?steamid=" . $loggedInUser->getSteam() . "'";?>>
-        Profile
-      </a>
+      <a href=
+    <?php
+    if ($loggedInUser->registered()) {
+      echo "'profile?steamid=" . $loggedInUser->getSteam() . "'>";
+      echo "Profile";
+    } else {
+      echo "'register'>";
+      echo "Register";
+    }
+    ?>
+    </a>
     </li>
     <li>
       <a href="#">
