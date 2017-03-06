@@ -1,31 +1,51 @@
+.app-login {
+  background: #39c3da;
+}
 
+.app-login .app-body .app-block .app-right-section {
+  background-color: #2A60CF;
+}
 
+.app-login .app-body .app-block .app-right-section .app-info ul.list li .icon {
+  color: #2A60CF;
+}
+
+.btn.btn-success  {
+  background-color: #2A60CF;
+  border-color: #2A60CF;
+  border-bottom-color: #2F4C89;
+  box-shadow: 0 2px 3px rgba(47, 76, 137, 0.3);
+}
+
+.app-login .app-body .app-block .app-right-section .app-brand .highlight {
+  color: #2A60CF;
+}
 
 
 
 .app.app-blue-sky aside.app-sidebar {
   background-color: #FFF; }
-  .app.app-blue-sky aside.app-sidebar .sidebar-header .sidebar-brand .highlight {
-    background-color: #39c3da; }
-  .app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li > a .icon {
-    background-color: rgba(141, 146, 147, 0.15);
-    color: rgba(141, 146, 147, 0.45); }
-  .app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li > a .title {
-    color: #8d9293; }
-  .app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .icon {
-    background-color: rgba(57, 195, 218, 0.25);
-    color: rgba(57, 195, 218, 0.75); }
-  .app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .title {
-    color: #39c3da; }
-  .app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.dropdown > .dropdown-menu > ul > li.section {
-    color: #39c3da; }
-  .app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.dropdown.open > a:after {
-    border-right-color: #FFF; }
-  .app.app-blue-sky aside.app-sidebar .sidebar-footer {
-    border-top-color: rgba(0, 0, 0, 0.1);
-    background-color: #FFF; }
-    .app.app-blue-sky aside.app-sidebar .sidebar-footer ul.menu > li.dropdown .dropdown-menu {
-      border-bottom-color: #39c3da; }
+.app.app-blue-sky aside.app-sidebar .sidebar-header .sidebar-brand .highlight {
+  background-color: #39c3da; }
+.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li > a .icon {
+  background-color: rgba(141, 146, 147, 0.15);
+  color: rgba(141, 146, 147, 0.45); }
+.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li > a .title {
+  color: #8d9293; }
+.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .icon {
+  background-color: rgba(57, 195, 218, 0.25);
+  color: rgba(57, 195, 218, 0.75); }
+.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .title {
+  color: #39c3da; }
+.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.dropdown > .dropdown-menu > ul > li.section {
+  color: #39c3da; }
+.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.dropdown.open > a:after {
+  border-right-color: #FFF; }
+.app.app-blue-sky aside.app-sidebar .sidebar-footer {
+  border-top-color: rgba(0, 0, 0, 0.1);
+  background-color: #FFF; }
+.app.app-blue-sky aside.app-sidebar .sidebar-footer ul.menu > li.dropdown .dropdown-menu {
+  border-bottom-color: #39c3da; }
 
 .app.app-blue-sky .navbar .navbar-header .navbar-brand .highlight, .app.app-blue-sky .navbar .navbar-mobile .navbar-brand .highlight {
   background-color: #39c3da; }

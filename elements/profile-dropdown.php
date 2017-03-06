@@ -1,17 +1,9 @@
 <?php
   $userInfo = $loggedInUser->getInfo();
-        
-  echo "<a href='profile?id=" . $loggedInUser->getID() . "'>";
-        
-  echo $userInfo['alias'];
-
-  echo "</a>.";
-}
-
 ?>
 
 <a href="/html/pages/profile.html" class="dropdown-toggle"  data-toggle="dropdown">
-  <img class="profile-img" src=<?php echo $userInfo['profile_pic_url']; ?>>
+  <img class="profile-img" src=<?php echo "'" . $userInfo['profile_pic_url'] . "'"; ?>>
   <div class="title">Profile</div>
 </a>
 <div class="dropdown-menu">
