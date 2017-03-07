@@ -15,6 +15,10 @@
                             echo "<span class='label label-danger'>Owner</span>";
                         }
 
+                        if ($userForDisplay->getInfo()['level'] === '2') {
+                            //mod code
+                        }
+
                     ?>
                     </div>
                 </div>

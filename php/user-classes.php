@@ -15,15 +15,13 @@ class User {
 		if ($userResult) {
 			$this->_userRegistered = TRUE;
 			$this->fillInfo($userResult);
+			$this->fillGameStats();
 		} else {
 			$this->_userRegistered = FALSE;
 		}
 	}
 
 	protected function fillInfo($userResult) {
-		require_once 'database.php';
-		global $dbh;
-
 		$userData = $userResult[0];
 
 		$this->_steamId = $this->_userInfo['steamid'] = $userData['user_steamid'];
@@ -34,6 +32,13 @@ class User {
 		$this->_userInfo['profile_pic_url'] = 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/' . $userData['user_profile_pic_url'] . '_medium.jpg';
 	}
 
+	protected function fillGameStats() {
+		require_once 'database.php';
+		global $dbh;
+		require 'stats-classes.php';
+		//$sql = "SELECT * FROM `tbl-player-sessions` WHERE `user_steamid` = :steamid ORDER BY `";
+	}
+
 	//GETTERS
 	public function getSteam() {
 		return $this->_steamId;
@@ -41,6 +46,10 @@ class User {
 
 	public function getInfo() {
 		return $this->_userInfo;
+	}
+
+	public function getGameStats() {
+
 	}
 
 	public function registered() {

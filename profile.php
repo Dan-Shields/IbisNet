@@ -11,7 +11,11 @@ if (isset($_SESSION['steamid'])) {
 }
 
 if (isset($_GET['steamid'])) {
-    $specifiedUser = new User($_GET['steamid']);
+    if ($_GET['steamid'] = $_SESSION['steamid']) {
+        $specifiedUser = $loggedInUser;
+    } else {
+        $specifiedUser = new User($_GET['steamid']);
+    }
     if (!$specifiedUser->registered()) {
         echo "<br/>";
         echo "User not found. Please check your userid and try again.";
@@ -38,9 +42,6 @@ if (isset($_GET['steamid'])) {
 
     <!-- Theme -->
     <link rel="stylesheet" type="text/css" href="assets/css/theme/blue-sky.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/theme/blue.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/theme/red.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/theme/yellow.css">
 
 </head>
 <body>
@@ -62,7 +63,6 @@ require 'elements/navbar.php';
 require 'elements/help-actions.php';
 
 if (isset($_GET['steamid'])) {
-    $specifiedUser = new User($_GET['steamid']);
     if (!$specifiedUser->registered()) {
         echo "<br/>";
         echo "User not found. Please check your userid and try again.";

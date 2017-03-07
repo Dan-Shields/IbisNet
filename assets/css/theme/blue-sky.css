@@ -21,6 +21,9 @@
   color: #2A60CF;
 }
 
+aside.app-sidebar .sidebar-header .sidebar-brand .highlight {
+  background-color: #2A60CF;
+}
 
 
 .app.app-blue-sky aside.app-sidebar {
