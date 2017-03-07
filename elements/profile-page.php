@@ -16,13 +16,17 @@
                         }
 
                         if ($userForDisplay->getInfo()['level'] === '2') {
-                            //mod code
+                            //moderator code
                         }
 
-                        if ($userForDisplay->getGameStats()['online']) {
-                            echo "<span class='label label-success'>Online</span>";
-                        } else {
-                            echo "<span class='label'>Last Online: ". $userForDisplay->getGameStats()['last_logout'] ."</span>";
+                        //more ranks can be added here
+
+                        if ($userForDisplay->getGameStats()['has_played']) {
+                            if ($userForDisplay->getGameStats()['online']) {
+                                echo "<span class='label label-success'>Online</span>";
+                            } else {
+                                echo "<span class='label'>Last Online: ". $userForDisplay->getGameStats()['last_logout'] ."</span>";
+                            }
                         }
 
                     ?>

@@ -25,6 +25,24 @@ aside.app-sidebar .sidebar-header .sidebar-brand .highlight {
   background-color: #2A60CF;
 }
 
+aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .icon {
+  background-color: rgba(51, 122, 183, 0.25);
+  color: rgba(41, 86, 199, 0.64);;
+}
+
+aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .title {
+  color: #2A60CF;
+}
+
+body .app-container .app-heading .app-title .title .highlight {
+  color: #2A60CF;
+}
+
+.btn-floating .btn-bg {
+  background-color: #2A60CF;
+  box-shadow: 0 1px 3px #2A60CF;
+}
+
 
 .app.app-blue-sky aside.app-sidebar {
   background-color: #FFF; }
