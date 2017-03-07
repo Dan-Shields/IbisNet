@@ -3,6 +3,7 @@ require 'php/database.php';
 require 'steamauth/steamauth.php';
 require_once 'php/user-functions.php';
 require_once 'php/user-classes.php';
+require_once 'php/stats-classes.php';
 
 if (isset($_SESSION['steamid'])) {
     require 'steamauth/userinfo.php';

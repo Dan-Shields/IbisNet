@@ -19,6 +19,12 @@
                             //mod code
                         }
 
+                        if ($userForDisplay->getGameStats()['online']) {
+                            echo "<span class='label label-success'>Online</span>";
+                        } else {
+                            echo "<span class='label'>Last Online: ". $userForDisplay->getGameStats()['last_logout'] ."</span>";
+                        }
+
                     ?>
                     </div>
                 </div>

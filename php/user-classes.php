@@ -4,6 +4,7 @@ class User {
 	protected $_userRegistered;
 	protected $_steamId;
 	protected $_userInfo;
+	protected $_userGameStats;
 
 	public function __construct($steamid) {
 		require_once 'database.php';
@@ -35,8 +36,40 @@ class User {
 	protected function fillGameStats() {
 		require_once 'database.php';
 		global $dbh;
-		require 'stats-classes.php';
-		//$sql = "SELECT * FROM `tbl-player-sessions` WHERE `user_steamid` = :steamid ORDER BY `";
+
+		$stats = new GSStats();
+		$currentPlayers = $stats->getPlayers();
+
+		$playerOnline = false;
+
+		foreach ($currentPlayers as $player) {
+			if ($player = $this->getInfo()['alias']) {
+				$playerOnline = true;
+				break;
+			}
+		}
+
+		$sql = "SELECT * FROM `tbl-player-sessions` WHERE `session_player_name` = :alias ORDER BY `session_end_time` DESC";
+		$sessionsResult = $dbh->select($sql,['alias' => $this->_userInfo['alias']]);
+
+		//sets last logout time
+		if ($sessionsResult) {
+			$lastSession = $sessionsResult[0];
+			$lastLogout = $lastSession['session_end_time'];
+
+			$totalPlaytime = 0;
+
+			foreach ($sessionsResult as $session) {
+				$totalPlaytime += $session['session_duration'];
+			}
+
+			$this->_userGameStats['has_played'] = true;
+			$this->_userGameStats['online'] = $playerOnline;
+			$this->_userGameStats['last_logout'] = $lastLogout;
+			$this->_userGameStats['total_playtime'] = $totalPlaytime;
+		} else {
+			$this->_userGameStats['has_played'] = false;
+		}
 	}
 
 	//GETTERS
@@ -49,7 +82,7 @@ class User {
 	}
 
 	public function getGameStats() {
-
+		return $this->_userGameStats;
 	}
 
 	public function registered() {
