@@ -5,13 +5,13 @@ require_once 'php/user-functions.php';
 require_once 'php/user-classes.php';
 require_once 'php/stats-classes.php';
 
+$stats = new GSStats();
+
 if (isset($_SESSION['steamid'])) {
 	require 'steamauth/userinfo.php';
 
 	$loggedInUser = new LoggedInUser($steamprofile['steamid']);
 }
-
-$stats = new GSStats();
 
 ?>
 

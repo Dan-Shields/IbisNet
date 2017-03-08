@@ -11,6 +11,8 @@ class GSStats {
 	protected $_max_players;
 	protected $_vessels;
 	protected $_online;
+	protected $_playersToday;
+	protected $_uptime;
 
 	public function __construct() {
 		if($this->get_http_response_code('http://localhost:25660') != "200"){
@@ -22,14 +24,10 @@ class GSStats {
 			$this->fillData($obj);
 			$this->_online = true;
 		}
-		
-		
-		
 	}
 
 	protected function get_http_response_code($url) {
-		ini_set('default_socket_timeout', 2);
-    	$headers = get_headers($url);
+    	$headers = @get_headers($url);
     	return substr($headers[0], 9, 3);
 	}
 
@@ -42,8 +40,19 @@ class GSStats {
 		$this->_whitelist = $obj->whitelist;
 		$this->_max_players = $obj->max_players;
 		$this->_vessels = $obj->vessels;
+		$this->_uptime = $obj->uptime;
+
+		require_once 'database.php';
+		global $dbh;
+
+		$sql = "SELECT DISTINCT `session_player_name` FROM `tbl-player-sessions` WHERE `session_end_time` BETWEEN NOW() - INTERVAL 1 DAY AND NOW()";
+		$sessionsResult = $dbh->select($sql,[]);
+
+		$this->_playersToday = count($sessionsResult);
+
 	}
 
+	//GETTERS
 	public function getPlayers() {
 		return $this->_players;
 	}
@@ -60,8 +69,13 @@ class GSStats {
 		return $this->_vessels;
 	}
 
+	public function getPlayersToday() {
+		return $this->_playersToday;
+	}
 
-
+	public function getUptime() {
+		return $this->_uptime;
+	}
 }
 
 ?>

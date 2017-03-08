@@ -36,20 +36,22 @@ class User {
 	protected function fillGameStats() {
 		require_once 'database.php';
 		global $dbh;
-
-		$stats = new GSStats();
-		$currentPlayers = $stats->getPlayers();
-
 		$playerOnline = false;
 
-		foreach ($currentPlayers as $player) {
-			if ($player = $this->getInfo()['alias']) {
-				$playerOnline = true;
-				break;
+		global $stats;
+		if ($stats->getStatus()) {
+			$currentPlayers = $stats->getPlayers();
+
+
+			foreach ($currentPlayers as $player) {
+				if ($player = $this->getInfo()['alias']) {
+					$playerOnline = true;
+					break;
+				}
 			}
 		}
 
-		$sql = "SELECT * FROM `tbl-player-sessions` WHERE `session_player_name` = :alias ORDER BY `session_end_time` DESC";
+		$sql = "SELECT * FROM `tbl-player-sessions` WHERE `session_player_name` = :alias ORDER BY `session_end_time` DESC LIMIT 1";
 		$sessionsResult = $dbh->select($sql,['alias' => $this->_userInfo['alias']]);
 
 		//sets last logout time

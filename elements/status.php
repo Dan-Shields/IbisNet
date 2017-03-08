@@ -25,8 +25,13 @@
   <div class="card-body">
     <i class="icon fa fa-user fa-4x"></i>
     <div class="content">
-      <div class="title">Total Players Today</div>
-      <div class="value"><span class="sign"></span>12</div>
+      <div class="title">Players Today</div>
+      <div class="value"><span class="sign"></span>
+      <?php
+        echo $stats->getPlayersToday();
+
+      ?>
+      </div>
     </div>
   </div>
 </a>
@@ -40,7 +45,7 @@
       <div class="title">Active Vessels</div>
       <div class="value"><span class="sign"></span>
       <?php
-        echo $stats->getVessels();
+        echo $stats->getVessels() - 30;
 
       ?>
       </div>
@@ -54,8 +59,27 @@
   <div class="card-body">
     <i class="icon fa fa-clock-o fa-4x"></i>
     <div class="content">
-      <div class="title">Up-time</div>
-      <div class="value">80 <span class="sign">hours</span></div>
+      <div class="title">Current Uptime</div>
+      <div class="value">
+      <?php
+        $uptime = $stats->getUptime() / 1000;
+        if ($uptime < 120) {
+          $interval = "seconds";
+        } else if ($uptime < 7200) {
+          $interval = "minutes";
+          $uptime /= 60;
+        } else {
+          $interval = "hours";
+          $uptime /= 3600;
+        }
+        echo floor($uptime);
+      ?>
+
+      <span class="sign"> 
+      <?php
+        echo $interval;
+      ?>
+      </span></div>
     </div>
   </div>
 </a>

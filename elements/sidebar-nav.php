@@ -5,7 +5,7 @@
 
 <aside class="app-sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a class="sidebar-brand" href="./"><span class="highlight">IbisNet</span></a>
+    <a class="sidebar-brand" href="./"><span class="highlight">Ibis</span>Net</a>
     <button type="button" class="sidebar-toggle">
       <i class="fa fa-times"></i>
     </button>
