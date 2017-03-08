@@ -1,15 +1,13 @@
 <div class="row">
   <div class="col-xs-12">
-    <div class="card card-banner card-chart card-green no-br">
+    <div class="card card-banner card-chart card-blue no-br">
       <div class="card-header">
         <div class="card-title">
           <div class="title">Activity Today</div>
         </div>
         <ul class="card-action">
           <li>
-            <a href="/">
-              <i class="fa fa-refresh"></i>
-            </a>
+            
           </li>
         </ul>
       </div>
@@ -63,7 +61,7 @@
       <div class="value">
       <?php
         $uptime = $stats->getUptime() / 1000;
-        if ($uptime < 120) {
+        if ($uptime < 60) {
           $interval = "seconds";
         } else if ($uptime < 7200) {
           $interval = "minutes";

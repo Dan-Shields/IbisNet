@@ -1,4 +1,4 @@
-<a href="/html/pages/profile.html" class="dropdown-toggle"  data-toggle="dropdown">
+<a href="profile.php" class="dropdown-toggle"  data-toggle="dropdown">
   <img class="profile-img" src=<?php echo "'" . $steamprofile['avatarmedium'] . "'"; ?>>
   <div class="title">Profile</div>
 </a>
@@ -20,12 +20,12 @@
     ?>
     </a>
     </li>
-    <li>
+    <!--<li>
       <a href="#">
         Setting
       </a>
     </li>
-    <li>
+    <li>-->
       <form action='' method='get'><button id='btn-logout' class='btn btn-danger btn-block' name='logout' type='submit'>Logout</button></form>
     </li>
   </ul>

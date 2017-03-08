@@ -6,6 +6,7 @@
   </button>
   <div class="toggle-content">
     <ul class="actions">
+      <li><a href='#'>About</a></li>
       <li><a href="https://github.com/Dan-Shields/IbisNet" target="_blank">Website Github</a></li>
       <li><a href="#">Server Plugins</a></li>
     </ul>

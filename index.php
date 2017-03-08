@@ -6,6 +6,7 @@ require_once 'php/user-classes.php';
 require_once 'php/stats-classes.php';
 
 $stats = new GSStats();
+$stats->fillFromSQL();
 
 if (isset($_SESSION['steamid'])) {
 	require 'steamauth/userinfo.php';

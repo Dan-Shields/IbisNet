@@ -21,7 +21,7 @@
         <li class="navbar-title">Dashboard</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown notification warning">
+        <!--<li class="dropdown notification warning">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <div class="icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
             <div class="title">System Notifications</div>
@@ -58,7 +58,7 @@
               </li>
             </ul>
           </div>
-        </li>
+        </li>-->
         
     	<?php
     	if (!isset($_SESSION['steamid'])) {

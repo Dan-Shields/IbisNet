@@ -21,8 +21,8 @@ class GSStats {
     		$json = file_get_contents('http://localhost:25660');
 			$obj = json_decode($json);
 
-			$this->fillData($obj);
 			$this->_online = true;
+			$this->fillFromJSON($obj);
 		}
 	}
 
@@ -31,7 +31,7 @@ class GSStats {
     	return substr($headers[0], 9, 3);
 	}
 
-	protected function fillData($obj) {
+	protected function fillFromJSON($obj) {
 		$this->_server_name = $obj->server_name;
 		$this->_players = $obj->players;
 		$this->_lastPlayerActivity = $obj->lastPlayerActivity;
@@ -41,7 +41,10 @@ class GSStats {
 		$this->_max_players = $obj->max_players;
 		$this->_vessels = $obj->vessels;
 		$this->_uptime = $obj->uptime;
+	}
 
+
+	public function fillFromSQL() {
 		require_once 'database.php';
 		global $dbh;
 
@@ -49,7 +52,6 @@ class GSStats {
 		$sessionsResult = $dbh->select($sql,[]);
 
 		$this->_playersToday = count($sessionsResult);
-
 	}
 
 	//GETTERS
@@ -75,6 +77,10 @@ class GSStats {
 
 	public function getUptime() {
 		return $this->_uptime;
+	}
+
+	public function getWhitelist() {
+		return $this->_whitelist;
 	}
 }
 
