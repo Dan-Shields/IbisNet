@@ -1,5 +1,5 @@
 <?php
-class GSStats {
+class Stats {
 	protected $_obj;
 
 	protected $_server_name;
@@ -15,7 +15,7 @@ class GSStats {
 	protected $_uptime;
 
 	public function __construct() {
-		if($this->get_http_response_code('http://localhost:25660') != "200"){
+		if($this->checkListenerStatus('localhost') === false){
     		$this->_online = false;
 		}else{
     		$json = file_get_contents('http://localhost:25660');
@@ -26,26 +26,30 @@ class GSStats {
 		}
 	}
 
-	protected function get_http_response_code($url) {
-    	$headers = @get_headers($url);
-    	return substr($headers[0], 9, 3);
+	protected function checkListenerStatus($host) {
+		$connection = @fsockopen($host, 25660, $errno, $errstr, 1);
+
+	    if (is_resource($connection)) {
+	        return true;
+	    } else {
+	        return false;
+	    }
 	}
 
 	protected function fillFromJSON($obj) {
-		$this->_server_name = $obj->server_name;
-		$this->_players = $obj->players;
-		$this->_lastPlayerActivity = $obj->lastPlayerActivity;
-		$this->_modControlSha = $obj->modControlSha;
-		$this->_player_count = $obj->player_count;
-		$this->_whitelist = $obj->whitelist;
-		$this->_max_players = $obj->max_players;
-		$this->_vessels = $obj->vessels;
-		$this->_uptime = $obj->uptime;
+		$this->_server_name =	        $obj->server_name;
+		$this->_players = 				$obj->players;
+		$this->_lastPlayerActivity = 	$obj->lastPlayerActivity;
+		$this->_modControlSha = 		$obj->modControlSha;
+		$this->_player_count = 			$obj->player_count;
+		$this->_whitelist = 			$obj->whitelist;
+		$this->_max_players = 			$obj->max_players;
+		$this->_vessels = 				$obj->vessels;
+		$this->_uptime = 				$obj->uptime;
 	}
 
-
 	public function fillFromSQL() {
-		require_once 'database.php';
+		require_once 'DBconnect.php';
 		global $dbh;
 
 		$sql = "SELECT DISTINCT `session_player_name` FROM `tbl-player-sessions` WHERE `session_end_time` BETWEEN NOW() - INTERVAL 1 DAY AND NOW()";
@@ -83,5 +87,4 @@ class GSStats {
 		return $this->_whitelist;
 	}
 }
-
 ?>

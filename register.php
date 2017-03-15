@@ -1,7 +1,9 @@
 <?php
-require 'php/database.php';
+require 'php/DBconnect.php';
 require 'steamauth/steamauth.php';
-require_once 'php/user-classes.php';
+require_once 'php/User.php';
+
+$dbh = new DBConnect();
 
 if (isset($_SESSION['steamid'])) {
     require 'steamauth/userinfo.php';

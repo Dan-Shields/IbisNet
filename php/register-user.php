@@ -1,8 +1,8 @@
 <?php
-	require 'database.php';
-	require 'user-classes.php';
+	require 'DBconnect.php';
+	require 'User.php';
 	require '../steamauth/steamauth.php';
-	require '../php/stats-classes.php';
+	require '../php/Stats.php';
 
 	$stats = new GSStats();
 

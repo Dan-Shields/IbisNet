@@ -33,7 +33,7 @@ if (isset($_GET['login'])){
 
 				$_SESSION['steamid'] = $matches[1];
 
-				require_once 'php/user-classes.php';
+				require_once 'php/User.php';
 
 				$loggedInUser = new LoggedInUser($_SESSION['steamid']);
 				$loggedInUser->update();

@@ -1,11 +1,12 @@
 <?php
-require 'php/database.php';
+require 'php/DBconnect.php';
 require 'steamauth/steamauth.php';
-require_once 'php/user-functions.php';
-require_once 'php/user-classes.php';
-require_once 'php/stats-classes.php';
+require_once 'php/User.php';
+require_once 'php/Stats.php';
 
-$stats = new GSStats();
+$dbh = new DBConnect();
+
+$stats = new Stats();
 
 if (isset($_SESSION['steamid'])) {
     require 'steamauth/userinfo.php';

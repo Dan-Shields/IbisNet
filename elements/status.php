@@ -27,7 +27,6 @@
       <div class="value"><span class="sign"></span>
       <?php
         echo $stats->getPlayersToday();
-
       ?>
       </div>
     </div>
@@ -43,8 +42,7 @@
       <div class="title">Active Vessels</div>
       <div class="value"><span class="sign"></span>
       <?php
-        echo $stats->getVessels() - 30;
-
+        echo $stats->getVessels() - 30; //-30 for the persistent 30 asteroids
       ?>
       </div>
     </div>
@@ -60,16 +58,20 @@
       <div class="title">Current Uptime</div>
       <div class="value">
       <?php
-        $uptime = $stats->getUptime() / 1000;
-        if ($uptime < 60) {
+        $uptime = $stats->getUptime() / 1000; //get uptime and convert from ms to s
+        //if uptime is less than 2 minutes, display in seconds
+        if ($uptime < 120) {
           $interval = "seconds";
+        //if uptime is less than 2 hours, display in minutes
         } else if ($uptime < 7200) {
           $interval = "minutes";
           $uptime /= 60;
+        //else display in hours
         } else {
           $interval = "hours";
           $uptime /= 3600;
         }
+        //display rounded-down value
         echo floor($uptime);
       ?>
 

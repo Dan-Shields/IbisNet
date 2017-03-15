@@ -1,5 +1,4 @@
 <?php
-
 class DBConnect {
 	protected $_pdo;
 
@@ -11,7 +10,7 @@ class DBConnect {
     	$dbDatabase = 'ksp';
     	$dsn = 'mysql:host='.$dbAddress.';dbname='.$dbDatabase;
 
-    	$pdo = new PDO($dsn, $dbUserName, $dbPass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING]);
+    	$pdo = new PDO($dsn, $dbUserName, DPPASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING]);
 
 		$this->_pdo=$pdo;
 	}
@@ -37,7 +36,3 @@ class DBConnect {
        	return TRUE;
 	}
 }
-
-$dbh = new DBConnect();
-
-?>
