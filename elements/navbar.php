@@ -10,12 +10,18 @@
         <li class="logo">
           <a class="navbar-brand" href="#"><span class="highlight">Ibis</span>Net</a>
         </li>
-        <li>
-          <button type="button" class="navbar-toggle">
-            <img class="profile-img" src=
-            >
-          </button>
-        </li>
+          <?php
+          if (isset($_SESSION['steamid'])) {
+              echo "
+              <li>
+                <button type='button' class='navbar-toggle'>
+                    <img class='profile-img' src='" . $steamprofile['avatar'] . "'
+                    >
+                </button>
+              </li>";
+          }
+          ?>
+
       </ul>
       <ul class="nav navbar-nav navbar-left">
         <li class="navbar-title">Dashboard</li>

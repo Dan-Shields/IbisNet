@@ -3,14 +3,12 @@ class DBConnect {
 	protected $_pdo;
 
 	public function __construct() {
-		require 'config.php';
-
     	$dbUserName = 'root';
     	$dbAddress = 'localhost';
     	$dbDatabase = 'ksp';
     	$dsn = 'mysql:host='.$dbAddress.';dbname='.$dbDatabase;
 
-    	$pdo = new PDO($dsn, $dbUserName, DPPASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING]);
+    	$pdo = new PDO($dsn, $dbUserName, DBPASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING]);
 
 		$this->_pdo=$pdo;
 	}

@@ -1,7 +1,9 @@
 <?php
+require 'php/config.php';
 require 'php/DBconnect.php';
 require 'steamauth/steamauth.php';
 require_once 'php/User.php';
+require_once 'php/LoggedInUser.php';
 require_once 'php/Stats.php';
 
 $dbh = new DBConnect();
@@ -46,6 +48,7 @@ if (isset($_GET['steamid'])) {
 
     <!-- Theme -->
     <link rel="stylesheet" type="text/css" href="assets/css/theme/blue-sky.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/ibisnet.css">
 
 </head>
 <body>
@@ -64,7 +67,7 @@ if (isset($_GET['steamid'])) {
 <div class="app-container">
     <?php
 require 'elements/navbar.php';
-require 'elements/help-actions.php';
+require 'elements/help-actions.html';
 
 if (isset($_GET['steamid'])) {
     if (!$specifiedUser->registered()) {

@@ -11,7 +11,7 @@
       <a href=
     <?php
     if ($loggedInUser->registered()) {
-      echo "'profile?steamid=" . $loggedInUser->getSteam() . "'>";
+      echo "'profile'>";
       echo "Profile";
     } else {
       echo "'register'>";

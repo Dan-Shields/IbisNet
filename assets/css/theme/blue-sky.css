@@ -10,132 +10,87 @@
   color: #2A60CF;
 }
 
-.btn.btn-success  {
-  background-color: #2A60CF;
-  border-color: #2A60CF;
-  border-bottom-color: #2F4C89;
-  box-shadow: 0 2px 3px rgba(47, 76, 137, 0.3);
-}
-
 .app-login .app-body .app-block .app-right-section .app-brand .highlight {
   color: #2A60CF;
 }
 
-aside.app-sidebar .sidebar-header .sidebar-brand .highlight {
-  background-color: #2A60CF;
-}
-
-aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .icon {
-  background-color: rgba(51, 122, 183, 0.25);
-  color: rgba(41, 86, 199, 0.64);;
-}
-
-aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .title {
-  color: #2A60CF;
-}
-
-body .app-container .app-heading .app-title .title .highlight {
-  color: #2A60CF;
-}
-
-.btn-floating .btn-bg {
-  background-color: #2A60CF;
-  box-shadow: 0 1px 3px #2A60CF;
-}
-
-.card.card-danger {
-    background-color: #E74C3C; }
-    .card.card-danger .card-body .icon {
-      color: #FFF;
-      background-color: rgba(255, 255, 255, 0.05); }
-    .card.card-danger .card-body .content .value {
-      color: #FFF; }
-
-.card.card-danger .card-header {
-  background-color: #E74C3C;
-  color: #FFF;
-  font-size: 1.5em;
-}
-
-
-
-.app.app-blue-sky aside.app-sidebar {
+aside.app-sidebar {
   background-color: #FFF; }
-.app.app-blue-sky aside.app-sidebar .sidebar-header .sidebar-brand .highlight {
+aside.app-sidebar .sidebar-header .sidebar-brand .highlight {
   background-color: #39c3da; }
-.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li > a .icon {
+aside.app-sidebar .sidebar-menu ul.sidebar-nav > li > a .icon {
   background-color: rgba(141, 146, 147, 0.15);
   color: rgba(141, 146, 147, 0.45); }
-.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li > a .title {
+aside.app-sidebar .sidebar-menu ul.sidebar-nav > li > a .title {
   color: #8d9293; }
-.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .icon {
+aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .icon {
   background-color: rgba(57, 195, 218, 0.25);
   color: rgba(57, 195, 218, 0.75); }
-.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .title {
+aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .title {
   color: #39c3da; }
-.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.dropdown > .dropdown-menu > ul > li.section {
+aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.dropdown > .dropdown-menu > ul > li.section {
   color: #39c3da; }
-.app.app-blue-sky aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.dropdown.open > a:after {
+aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.dropdown.open > a:after {
   border-right-color: #FFF; }
-.app.app-blue-sky aside.app-sidebar .sidebar-footer {
+aside.app-sidebar .sidebar-footer {
   border-top-color: rgba(0, 0, 0, 0.1);
   background-color: #FFF; }
-.app.app-blue-sky aside.app-sidebar .sidebar-footer ul.menu > li.dropdown .dropdown-menu {
+aside.app-sidebar .sidebar-footer ul.menu > li.dropdown .dropdown-menu {
   border-bottom-color: #39c3da; }
 
-.app.app-blue-sky .navbar .navbar-header .navbar-brand .highlight, .app.app-blue-sky .navbar .navbar-mobile .navbar-brand .highlight {
+.navbar .navbar-header .navbar-brand .highlight, .navbar .navbar-mobile .navbar-brand .highlight {
   background-color: #39c3da; }
 
-.app.app-blue-sky .ct-series-a .ct-bar, .app.app-blue-sky .ct-series-a .ct-line, .app.app-blue-sky .ct-series-a .ct-point {
+.ct-series-a .ct-bar, .ct-series-a .ct-line, .ct-series-a .ct-point {
   stroke: #39c3da; }
 
-.app.app-blue-sky .ct-series-a .ct-area {
+.ct-series-a .ct-area {
   fill: #39c3da; }
 
-.app.app-blue-sky .ct-series-a .ct-slice-pie {
+.ct-series-a .ct-slice-pie {
   fill: #39c3da;
   stroke: #FFF;
   stroke-width: 3; }
 
-.app.app-blue-sky .ct-series-a .ct-slice-donut {
+.ct-series-a .ct-slice-donut {
   stroke: #39c3da; }
 
-.app.app-blue-sky .ct-series-b .ct-bar, .app.app-blue-sky .ct-series-b .ct-line, .app.app-blue-sky .ct-series-b .ct-point {
+.ct-series-b .ct-bar, .ct-series-b .ct-line, .ct-series-b .ct-point {
   stroke: #29c75f; }
 
-.app.app-blue-sky .ct-series-b .ct-area {
+.ct-series-b .ct-area {
   fill: #29c75f; }
 
-.app.app-blue-sky .ct-series-b .ct-slice-pie {
+.ct-series-b .ct-slice-pie {
   fill: #29c75f;
   stroke: #FFF;
   stroke-width: 3; }
 
-.app.app-blue-sky .ct-series-b .ct-slice-donut {
+.ct-series-b .ct-slice-donut {
   stroke: #29c75f; }
 
-.app.app-blue-sky .ct-series-a:after {
+.ct-series-a:after {
   background-color: #39c3da; }
 
-.app.app-blue-sky .ct-series-b:after {
+.ct-series-b:after {
   background-color: #29c75f; }
 
-.app.app-blue-sky .card-banner .ct-series-a .ct-bar, .app.app-blue-sky .card-banner .ct-series-a .ct-line, .app.app-blue-sky .card-banner .ct-series-a .ct-point {
+.card-banner .ct-series-a .ct-bar, .card-banner .ct-series-a .ct-line, .card-banner .ct-series-a .ct-point {
   stroke: #FFF; }
 
-.app.app-blue-sky .card-banner .ct-series-a .ct-area {
+.card-banner .ct-series-a .ct-area {
   fill: #FFF; }
 
-.app.app-blue-sky .card-banner .ct-series-a .ct-slice-pie {
+.card-banner .ct-series-a .ct-slice-pie {
   fill: white;
   stroke: #FFF;
   stroke-width: 3; }
 
-.app.app-blue-sky .card-banner .ct-series-a .ct-slice-donut {
+.card-banner .ct-series-a .ct-slice-donut {
   stroke: #FFF; }
 
-.app.app-blue-sky .card.card-tab .card-header > ul > li.active a, .app.app-blue-sky .card.card-tab ul.nav-tabs > li.active a {
+.card.card-tab .card-header > ul > li.active a, .card.card-tab ul.nav-tabs > li.active a {
   color: #39c3da; }
 
-.app.app-blue-sky .card.card-tab > .ng-isolate-scope > .nav-tabs > li.active a {
+.card.card-tab > .ng-isolate-scope > .nav-tabs > li.active a {
   color: #39c3da; }

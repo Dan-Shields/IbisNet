@@ -28,7 +28,7 @@
           <div class="title">Dashboard</div>
         </a>
       </li>
-      <li class="dropdown">
+      <!--<li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <div class="icon">
             <i class="fa fa-file-o" aria-hidden="true"></i>
@@ -43,13 +43,11 @@
             <li><a href="./pages/search.html">Search</a></li>
             <li class="line"></li>
             <li class="section"><i class="fa fa-file-o" aria-hidden="true"></i> Landing</li>
-            <!-- <li><a href="./pages/landing.html">Landing</a></li> -->
             <li><a href="./pages/login.html">Login</a></li>
             <li><a href="./pages/register.html">Register</a></li>
-            <!-- <li><a href="./pages/404.html">404</a></li> -->
           </ul>
         </div>
-      </li>
+      </li>-->
     </ul>
   </div>
   <div class="sidebar-footer">

@@ -9,7 +9,7 @@ function logoutButton() {
 function loginButton($buttonstyle = "square") {
 	$button['rectangle'] = "01";
 	$button['square'] = "02";
-	$button = "<a href='?login'><img src='./assets/images/sits_small.png'></a>";
+	$button = "<a href='?login'><img src='./assets/images/sits_01.png'></a>";
 	
 	echo $button;
 }

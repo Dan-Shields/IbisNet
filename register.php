@@ -1,7 +1,9 @@
 <?php
+require 'php/config.php';
 require 'php/DBconnect.php';
-require 'steamauth/steamauth.php';
 require_once 'php/User.php';
+require 'steamauth/steamauth.php';
+
 
 $dbh = new DBConnect();
 

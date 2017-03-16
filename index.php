@@ -1,13 +1,14 @@
 <?php
+require 'php/config.php';
 require 'php/DBconnect.php';
 require 'steamauth/steamauth.php';
 require_once 'php/User.php';
+require_once 'php/LoggedInUser.php';
 require_once 'php/Stats.php';
 
 $dbh = new DBConnect();
 
 $stats = new Stats();
-$stats->fillFromSQL();
 
 if (isset($_SESSION['steamid'])) {
 	require 'steamauth/userinfo.php';
@@ -28,6 +29,7 @@ if (isset($_SESSION['steamid'])) {
 
   <!-- Theme -->
   <link rel="stylesheet" type="text/css" href="./assets/css/theme/blue-sky.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/ibisnet.css">
 
 </head>
 <body>
@@ -38,16 +40,16 @@ if (isset($_SESSION['steamid'])) {
 <div class="app-container">
 <?php
 require 'elements/navbar.php';
-require 'elements/help-actions.php';
+require 'elements/help-actions.html';
 
-if ($stats->getStatus() === true) {
-	require 'elements/status.php';
-} else {
-	require 'elements/offline.php';
-}
+?>
+<?php
+require 'elements/loading.html';
+?>
+<?php
 
-require 'elements/stats.php';
-require 'elements/footer.php';
+require 'elements/stats-display.php';
+require 'elements/footer.html';
 ?>
 </div>
 

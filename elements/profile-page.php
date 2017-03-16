@@ -22,11 +22,7 @@
                         //more ranks can be added here
 
                         if ($userForDisplay->getGameStats()['has_played']) {
-                            if ($userForDisplay->getGameStats()['online']) {
-                                echo "<span class='label label-success'>Online</span>";
-                            } else {
-                                echo "<span class='label'>Last Online: ". $userForDisplay->getGameStats()['last_logout'] ."</span>";
-                            }
+                            echo "<span id='user-status' class='label'>Last Online: ". $userForDisplay->getGameStats()['last_logout'] ."</span>";
                         }
 
                     ?>

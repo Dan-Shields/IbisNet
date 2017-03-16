@@ -36,25 +36,6 @@ class User {
 	protected function fillGameStats() {
 		require_once 'DBconnect.php';
 		global $dbh;
-		$playerOnline = false;
-
-		global $stats;
-		if (!isset($stats)) {
-			require 'php/Stats.php';
-			$stats = new GSStats;
-		}
-
-		if ($stats->getStatus()) {
-			$currentPlayers = $stats->getPlayers();
-
-
-			foreach ($currentPlayers as $player) {
-				if ($player = $this->getInfo()['alias']) {
-					$playerOnline = true;
-					break;
-				}
-			}
-		}
 
 		$sql = "SELECT * FROM `tbl-player-sessions` WHERE `session_player_name` = :alias ORDER BY `session_end_time` DESC LIMIT 1";
 		$sessionsResult = $dbh->select($sql,['alias' => $this->_userInfo['alias']]);
@@ -71,7 +52,6 @@ class User {
 			}
 
 			$this->_userGameStats['has_played'] = true;
-			$this->_userGameStats['online'] = $playerOnline;
 			$this->_userGameStats['last_logout'] = $lastLogout;
 			$this->_userGameStats['total_playtime'] = $totalPlaytime;
 		} else {
