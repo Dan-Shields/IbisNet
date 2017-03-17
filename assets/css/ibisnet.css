@@ -43,19 +43,7 @@ body .app-container .app-heading .app-title .title .highlight {
     box-shadow: 0 1px 3px #2A60CF;
 }
 
-.card.card-danger {
-    background-color: #E74C3C; }
-.card.card-danger .card-body .icon {
-    color: #FFF;
-    background-color: rgba(255, 255, 255, 0.05); }
-.card.card-danger .card-body .content .value {
-    color: #FFF; }
 
-.card.card-danger .card-header {
-    background-color: #E74C3C;
-    color: #FFF;
-    font-size: 1.5em;
-}
 
 body .app-container > div#server-status > div.row
 {
@@ -75,6 +63,19 @@ body .app-container > div#server-status > div.row > [class*="col-"]
 /***
 Offline card*/
 
+.card.card-danger {
+    background-color: #E74C3C; }
+.card.card-danger .card-body .icon {
+    color: #FFF;
+    background-color: rgba(255, 255, 255, 0.05); }
+.card.card-danger .card-body .content .value {
+    color: #FFF; }
+
+.card.card-danger .card-header {
+    background-color: #E74C3C;
+    color: #FFF;
+    font-size: 1.5em;
+}
 .card.card-danger .card-header
 {
     border-color: #E74C3C;

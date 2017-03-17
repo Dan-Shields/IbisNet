@@ -1,8 +1,11 @@
 <?php
 
-class LoggedInUser extends User {
-    public function register($userInfo) {
-        if (!$this->registered()) {
+class LoggedInUser extends User
+{
+    public function register($userInfo)
+    {
+        if (!$this->registered())
+        {
             require_once 'DBconnect.php';
             global $dbh;
 
@@ -10,13 +13,17 @@ class LoggedInUser extends User {
             $result = $dbh->change($sql,$userInfo);
 
             return $result;
-        } else {
+        }
+        else
+        {
             return FALSE;
         }
     }
 
-    public function update() {
-        if ($this->registered()) {
+    public function update()
+    {
+        if ($this->registered())
+        {
             require_once 'DBconnect.php';
             require_once '../steamauth/userInfo.php';
             global $dbh;
@@ -26,12 +33,15 @@ class LoggedInUser extends User {
 
             //if more than 5 minutes old refresh url and reset timestamp
             $time = $result[0]['diff'];
-            if ($time >= 300) {
+            if ($time >= 300)
+            {
                 $sql = "UPDATE `tbl-user` SET `user_profile_pic_url`=:profile_pic_url, `user_profile_update_time`=NOW() WHERE `user_steamid`=:steamid";
                 $dbh->change($sql,['steamid' => $this->_steamid, 'profile_pic_url' => substr($steamprofile['avatarmedium'], 72, 40)]);
             }
             return TRUE;
-        } else {
+        }
+        else
+        {
             return FALSE;
         }
     }

@@ -1,28 +1,34 @@
 <?php
 
-class User {
+class User
+{
 	protected $_userRegistered;
 	protected $_steamId;
 	protected $_userInfo;
 	protected $_userGameStats;
 
-	public function __construct($steamid) {
+	public function __construct($steamid)
+    {
 		require_once 'DBconnect.php';
 		global $dbh;
 
 		$sql = "SELECT * FROM `tbl-user` WHERE `user_steamid` = :steamid";
 		$userResult = $dbh->select($sql,['steamid' => $steamid]);
 		
-		if ($userResult) {
+		if ($userResult)
+		{
 			$this->_userRegistered = TRUE;
 			$this->fillInfo($userResult);
 			$this->fillGameStats();
-		} else {
+		}
+		else
+        {
 			$this->_userRegistered = FALSE;
 		}
 	}
 
-	protected function fillInfo($userResult) {
+	protected function fillInfo($userResult)
+    {
 		$userData = $userResult[0];
 
 		$this->_steamId = $this->_userInfo['steamid'] = $userData['user_steamid'];
@@ -33,7 +39,8 @@ class User {
 		$this->_userInfo['profile_pic_url'] = 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/' . $userData['user_profile_pic_url'] . '_medium.jpg';
 	}
 
-	protected function fillGameStats() {
+	protected function fillGameStats()
+    {
 		require_once 'DBconnect.php';
 		global $dbh;
 
@@ -41,40 +48,46 @@ class User {
 		$sessionsResult = $dbh->select($sql,['alias' => $this->_userInfo['alias']]);
 
 		//sets last logout time
-		if ($sessionsResult) {
+		if ($sessionsResult)
+		{
 			$lastSession = $sessionsResult[0];
 			$lastLogout = $lastSession['session_end_time'];
 
 			$totalPlaytime = 0;
 
-			foreach ($sessionsResult as $session) {
+			foreach ($sessionsResult as $session)
+			{
 				$totalPlaytime += $session['session_duration'];
 			}
 
 			$this->_userGameStats['has_played'] = true;
 			$this->_userGameStats['last_logout'] = $lastLogout;
 			$this->_userGameStats['total_playtime'] = $totalPlaytime;
-		} else {
+		}
+		else
+        {
 			$this->_userGameStats['has_played'] = false;
 		}
 	}
 
 	//GETTERS
-	public function getSteam() {
+	public function getSteam()
+    {
 		return $this->_steamId;
 	}
 
-	public function getInfo() {
+	public function getInfo()
+    {
 		return $this->_userInfo;
 	}
 
-	public function getGameStats() {
+	public function getGameStats()
+    {
 		return $this->_userGameStats;
 	}
 
-	public function registered() {
+	public function registered()
+    {
 		return $this->_userRegistered;
 	}
 }
-
-?>

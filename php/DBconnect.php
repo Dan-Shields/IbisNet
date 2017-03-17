@@ -1,8 +1,10 @@
 <?php
-class DBConnect {
+class DBConnect
+{
 	protected $_pdo;
 
-	public function __construct() {
+	public function __construct()
+    {
     	$dbUserName = 'root';
     	$dbAddress = 'localhost';
     	$dbDatabase = 'ksp';
@@ -13,22 +15,30 @@ class DBConnect {
 		$this->_pdo=$pdo;
 	}
 
-	public function select($sql, $params) {
-		try {
+	public function select($sql, $params)
+    {
+		try
+        {
 			$statement = $this->_pdo->prepare($sql);
 			$statement->execute($params);
 			$result = $statement->fetchAll();
-		} catch (PDOException $e) {
+		}
+		catch (PDOException $e)
+        {
            	die('Connection failed: ' . $e->getMessage());
        	}
 		return $result;
 	}
 
-	public function change($sql,$params) {
-		try {
+	public function change($sql,$params)
+    {
+		try
+        {
 			$statement = $this->_pdo->prepare($sql);
 			$statement->execute($params);
-		} catch (PDOException $e) {
+		}
+		catch (PDOException $e)
+        {
            	die('Connection failed: ' . $e->getMessage());
        	}
        	return TRUE;

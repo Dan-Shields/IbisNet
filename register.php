@@ -7,7 +7,8 @@ require 'steamauth/steamauth.php';
 
 $dbh = new DBConnect();
 
-if (isset($_SESSION['steamid'])) {
+if (isset($_SESSION['steamid']))
+{
     require 'steamauth/userinfo.php';
 
     $loggedInUser = new LoggedInUser($steamprofile['steamid']);
@@ -78,15 +79,21 @@ if (isset($_SESSION['steamid'])) {
           <div class="form-suggestion">
           
           <?php 
-          if (!isset($_SESSION['steamid'])) {
+          if (!isset($_SESSION['steamid']))
+          {
             echo "Please sign in first.";
             echo "</div>";
             echo loginButton('rectangle');
-          } else {
-            if ($loggedInUser->registered()) {
+          }
+          else
+          {
+            if ($loggedInUser->registered())
+            {
               echo "You are already registered!";
               echo "</div>";
-            } else {
+            }
+            else
+            {
               echo "Hi <b>" . $steamprofile['personaname'] . "</b>, create an account for free.";
               echo "</div>";
               require 'elements/registration-form.php'; 
@@ -107,7 +114,6 @@ if (isset($_SESSION['steamid'])) {
   </div>
   
   <script type="text/javascript" src="./assets/js/vendor.js"></script>
-  <!--<script type="text/javascript" src="./assets/js/app.js"></script>-->
 
 </body>
 </html>

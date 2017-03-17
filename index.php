@@ -10,7 +10,8 @@ $dbh = new DBConnect();
 
 $stats = new Stats();
 
-if (isset($_SESSION['steamid'])) {
+if (isset($_SESSION['steamid']))
+{
 	require 'steamauth/userinfo.php';
 
 	$loggedInUser = new LoggedInUser($steamprofile['steamid']);

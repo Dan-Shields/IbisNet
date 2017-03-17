@@ -1,5 +1,6 @@
 <?php
-class Stats {
+class Stats
+{
 	protected $_obj;
 
 	protected $_server_name;
@@ -14,7 +15,8 @@ class Stats {
 	protected $_playersToday;
 	protected $_uptime;
 
-	public function _construct() {
+	public function _construct()
+    {
 		require_once 'DBconnect.php';
 		global $dbh;
 
@@ -25,8 +27,8 @@ class Stats {
 	}
 
 	//GETTERS
-	public function getPlayersToday() {
+	public function getPlayersToday()
+    {
 		return $this->_playersToday;
 	}
 }
-?>

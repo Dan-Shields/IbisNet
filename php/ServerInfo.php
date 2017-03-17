@@ -4,11 +4,20 @@ class ServerInfo
 {
     protected $_obj;
 
-    public function __construct() {
+    public function __construct()
+    {
+
+    }
+
+    protected function updateCache()
+    {
         $this->_obj = new stdClass();
-        if($this->checkListenerStatus('localhost') === false){
+        if($this->checkListenerStatus('localhost') === false)
+        {
             $this->_obj->online = false;
-        }else{
+        }
+        else
+        {
             $json = file_get_contents('http://localhost:25660');
             $this->_obj = json_decode($json);
 
@@ -16,18 +25,23 @@ class ServerInfo
         }
     }
 
-    protected function checkListenerStatus($host) {
+    protected function checkListenerStatus($host)
+    {
         $connection = @fsockopen($host, 25660, $errno, $errstr, 2);
 
-        if (is_resource($connection)) {
+        if (is_resource($connection))
+        {
             return true;
-        } else {
+        }
+        else
+        {
             return false;
         }
     }
 
     //GETTERS
-    public function getJSON() {
+    public function getJSON()
+    {
         return json_encode($this->_obj);
     }
 }

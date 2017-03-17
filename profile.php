@@ -10,27 +10,39 @@ $dbh = new DBConnect();
 
 $stats = new Stats();
 
-if (isset($_SESSION['steamid'])) {
+if (isset($_SESSION['steamid']))
+{
     require 'steamauth/userinfo.php';
 
     $loggedInUser = new LoggedInUser($steamprofile['steamid']);
 }
 
-if (isset($_GET['steamid'])) {
-    if ($_GET['steamid'] = $_SESSION['steamid']) {
+if (isset($_GET['steamid']))
+{
+    if ($_GET['steamid'] = $_SESSION['steamid'])
+    {
         $specifiedUser = $loggedInUser;
-    } else {
+    }
+    else
+    {
         $specifiedUser = new User($_GET['steamid']);
     }
-    if (!$specifiedUser->registered()) {
+    if (!$specifiedUser->registered())
+    {
         echo "<br/>";
         echo "User not found. Please check your userid and try again.";
-    } else {
+    }
+    else
+    {
         $userForDisplay = $specifiedUser;
     }
-} else if (isset($loggedInUser) && $loggedInUser->registered()) {
+}
+else if (isset($loggedInUser) && $loggedInUser->registered())
+{
     $userForDisplay = $loggedInUser;
-} else {
+}
+else
+{
     echo "Please register to view your profile or view someone else's by going to profile/steamid.";
 }
 
@@ -55,32 +67,31 @@ if (isset($_GET['steamid'])) {
     <div class="app app-default">
 
     <?php require 'elements/sidebar-nav.php';?>
-
-<!-- <script type="text/ng-template" id="sidebar-dropdown.tpl.html">
-    <div class="dropdown-background">
-        <div class="bg"></div>
-    </div>
-    <div class="dropdown-container">
-        {{list}}
-    </div>
-</script> -->
-<div class="app-container">
+        <div class="app-container">
     <?php
 require 'elements/navbar.php';
 require 'elements/help-actions.html';
 
-if (isset($_GET['steamid'])) {
-    if (!$specifiedUser->registered()) {
+if (isset($_GET['steamid']))
+{
+    if (!$specifiedUser->registered())
+    {
         echo "<br/>";
         echo "User not found. Please check your userid and try again.";
-    } else {
+    }
+    else
+    {
         $userForDisplay = $specifiedUser;
         require "elements/profile-page.php";
     }
-} else if ($loggedInUser->registered()) {
+}
+else if ($loggedInUser->registered())
+{
     $userForDisplay = $loggedInUser;
     require "elements/profile-page.php";
-} else {
+}
+else
+{
     echo "Please register to view your profile or view someone else's by going to profile/steamid.";
 }
 

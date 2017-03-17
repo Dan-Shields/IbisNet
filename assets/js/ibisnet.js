@@ -14,8 +14,8 @@ function convertUptime(uptime) {
     }
 
     var newUptime = Math.floor(uptime);
-    var result = [newUptime, unit];
-    return result;
+
+    return [newUptime, unit];
 }
 
 var checkXmlHttp = new XMLHttpRequest();
@@ -31,7 +31,7 @@ checkXmlHttp.onreadystatechange = function() {
                     document.getElementById("server-status").innerHTML = this.responseText;
 
                     document.getElementById("current-players").innerHTML = serverInfo.player_count;
-                    var trueVesselCount = Number(serverInfo.vessels) - 30;
+                    var trueVesselCount = Number(serverInfo.vessels);
                     document.getElementById("active-vessels").innerHTML = trueVesselCount.toString();
 
                     var uptime = convertUptime(serverInfo.uptime);
