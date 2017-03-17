@@ -1,3 +1,62 @@
+.app-login {
+    background: #39c3da;
+}
+
+.app-login .app-body .app-block .app-right-section {
+    background-color: #2A60CF;
+}
+
+.app-login .app-body .app-block .app-right-section .app-info ul.list li .icon {
+    color: #2A60CF;
+}
+
+.btn.btn-success  {
+    background-color: #2A60CF;
+    border-color: #2A60CF;
+    border-bottom-color: #2F4C89;
+    box-shadow: 0 2px 3px rgba(47, 76, 137, 0.3);
+}
+
+.app-login .app-body .app-block .app-right-section .app-brand .highlight {
+    color: #2A60CF;
+}
+
+aside.app-sidebar .sidebar-header .sidebar-brand .highlight {
+    background-color: #2A60CF;
+}
+
+aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .icon {
+    background-color: rgba(51, 122, 183, 0.25);
+    color: rgba(41, 86, 199, 0.64);;
+}
+
+aside.app-sidebar .sidebar-menu ul.sidebar-nav > li.active > a .title {
+    color: #2A60CF;
+}
+
+body .app-container .app-heading .app-title .title .highlight {
+    color: #2A60CF;
+}
+
+.btn-floating .btn-bg {
+    background-color: #2A60CF;
+    box-shadow: 0 1px 3px #2A60CF;
+}
+
+.card.card-danger {
+    background-color: #E74C3C; }
+.card.card-danger .card-body .icon {
+    color: #FFF;
+    background-color: rgba(255, 255, 255, 0.05); }
+.card.card-danger .card-body .content .value {
+    color: #FFF; }
+
+.card.card-danger .card-header {
+    background-color: #E74C3C;
+    color: #FFF;
+    font-size: 1.5em;
+}
+
 body .app-container > div#server-status > div.row
 {
     padding-left: 30px;
@@ -6,11 +65,6 @@ body .app-container > div#server-status > div.row
 body .app-container > div#server-status > div.row > [class*="col-"]
 {
     margin-bottom: 30px;
-}
-
-.server-status
-{
-    margin: initial;
 }
 
 .navbar .navbar-collapse .navbar-nav > li.navbar-title
@@ -181,33 +235,3 @@ Loading card*/
     100%{transform:rotate(-360deg); }
 }
 
-@-webkit-keyframes blink
-{
-    0%{opacity:.3;filter:alpha(opacity=30);}
-    50%{opacity:.5;filter:alpha(opacity=50);}
-    100%{opacity:1;filter:alpha(opacity=100);}
-}
-@-moz-keyframes blink
-{
-    0%{opacity:.3;filter:alpha(opacity=30);}
-    50%{opacity:.5;filter:alpha(opacity=50);}
-    100%{opacity:1;filter:alpha(opacity=100);}
-}
-@-o-keyframes blink
-{
-    0%{opacity:.3;filter:alpha(opacity=30);}
-    50%{opacity:.5;filter:alpha(opacity=50);}
-    100%{opacity:1;filter:alpha(opacity=100);}
-}
-@-ms-keyframes blink
-{
-    0%{opacity:.3;filter:alpha(opacity=30);}
-    50%{opacity:.5;filter:alpha(opacity=50);}
-    100%{opacity:1;filter:alpha(opacity=100);}
-}
-@keyframes blink
-{
-    0%{opacity:.3;filter:alpha(opacity=30);}
-    50%{opacity:.5;filter:alpha(opacity=50);}
-    100%{opacity:1;filter:alpha(opacity=100);}
-}
