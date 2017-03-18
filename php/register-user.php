@@ -4,6 +4,8 @@
 	require '../steamauth/steamauth.php';
 	require '../php/Stats.php';
 
+    $dbh = new DBConnect();
+
 	$stats = new GSStats();
 
 	if (isset($_SESSION['steamid']) && isset($_POST['email']) && isset($_POST['alias']))
@@ -75,7 +77,7 @@
 
 	function checkWhitelist($name)
     {
-		$stats = new GSStats();
+		$stats = new Stats();
 			foreach ($stats->getWhitelist() as $player)
 			{
 				if ($player == $name)
@@ -85,5 +87,3 @@
 				}
 			}
 	}
-
-?>

@@ -4,7 +4,6 @@ require 'php/DBconnect.php';
 require_once 'php/User.php';
 require 'steamauth/steamauth.php';
 
-
 $dbh = new DBConnect();
 
 if (isset($_SESSION['steamid']))

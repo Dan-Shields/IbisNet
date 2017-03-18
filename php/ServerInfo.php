@@ -2,26 +2,48 @@
 
 class ServerInfo
 {
-    protected $_obj;
+    protected $_json;
 
     public function __construct()
     {
+        $cache = new ServerInfoCache();
+        $timeSinceCache = $cache->getCache()['time_since_cache'];
+
+        if (isset($timeSinceCache))
+        {
+            if ($timeSinceCache > 2)
+            {
+                $this->setServerInfo();
+                $cache->setCache($this->_json);
+            }
+            else
+            {
+                $this->_json = $cache->getCache()['server-info_json'];
+            }
+        }
+        else
+        {
+            $this->setServerInfo();
+            $cache->setCache($this->_json);
+        }
 
     }
 
-    protected function updateCache()
+    protected function setServerInfo()
     {
-        $this->_obj = new stdClass();
+
         if($this->checkListenerStatus('localhost') === false)
         {
-            $this->_obj->online = false;
+            $obj = new stdClass();
+            $obj->online = false;
+            $this->_json = json_encode($obj);
         }
         else
         {
             $json = file_get_contents('http://localhost:25660');
-            $this->_obj = json_decode($json);
-
-            $this->_obj->online = true;
+            $obj = json_decode($json);
+            $obj->online = true;
+            $this->_json = json_encode($obj);
         }
     }
 
@@ -42,6 +64,6 @@ class ServerInfo
     //GETTERS
     public function getJSON()
     {
-        return json_encode($this->_obj);
+        return $this->_json;
     }
 }

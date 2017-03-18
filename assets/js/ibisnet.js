@@ -2,7 +2,6 @@ var serverInfo;
 
 function convertUptime(uptime) {
     var unit;
-    uptime /= 1000; //convert to seconds
     if (uptime < 120) {
         unit = "seconds";
     } else if (uptime < 7200) {
