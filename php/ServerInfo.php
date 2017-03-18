@@ -7,11 +7,12 @@ class ServerInfo
     public function __construct()
     {
         $cache = new ServerInfoCache();
-        $timeSinceCache = $cache->getCache()['time_since_cache'];
 
-        if (isset($timeSinceCache))
+        if (!empty($cache->getCache()))
         {
-            if ($timeSinceCache > 2)
+            $timeSinceCache = $cache->getCache()['time_since_cache'];
+
+            if ($timeSinceCache > 3)
             {
                 $this->setServerInfo();
                 $cache->setCache($this->_json);

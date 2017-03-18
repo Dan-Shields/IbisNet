@@ -8,16 +8,12 @@ class ServerInfoCache
     {
         $this->_dbh = new DBConnect();
 
-        $sql = "SELECT TIME_TO_SEC(TIMEDIFF(NOW(), `server-info_timestamp`)) as time_since_cache FROM `tbl-server-info-cache`";
+        $sql = "SELECT TIME_TO_SEC(TIMEDIFF(NOW(), `server-info_timestamp`)) as time_since_cache, `server-info_json` FROM `tbl-server-info-cache`";
         $cache = $this->_dbh->select($sql, []);
 
         if (!empty($cache))
         {
-            $this->currentCache = $cache[0];
-        }
-        else
-        {
-            $this->currentCache = null;
+            $this->_currentCache = $cache[0];
         }
     }
 
@@ -25,7 +21,7 @@ class ServerInfoCache
     {
         if (isset($this->_currentCache))
         {
-            $sql = "UPDATE `tbl-server-info-cache` SET `server-info_json`=:json WHERE 1";
+            $sql = "UPDATE `tbl-server-info-cache` SET `server-info_timestamp` = DEFAULT, `server-info_json`=:json";
         }
         else
         {
