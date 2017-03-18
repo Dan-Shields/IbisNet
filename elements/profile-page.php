@@ -1,28 +1,26 @@
-<?php
-
-?>
-
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body app-heading">
                 <img class="profile-img" src=<?php echo "'" . $userForDisplay->getInfo()['profile_pic_url'] . "'"; ?>>
                 <div class="app-title">
-                    <div class="title"><span class="highlight"><?php echo $userForDisplay->getInfo()['alias'];?></span></div>
+                    <div class="title"><span class="highlight" id="user-name"><?php echo $userForDisplay->getInfo()['alias'];?></span></div>
                     <div class="description">
                     <?php
                         if ($userForDisplay->getInfo()['level'] === '1') {
+                            //admin label
                             echo "<span class='label label-danger'>Owner</span>";
                         }
 
                         if ($userForDisplay->getInfo()['level'] === '2') {
-                            //moderator code
+                            //moderator label
+                            echo "<span class='label label-danger'>Mod</span>";
                         }
 
                         //more ranks can be added here
 
                         if ($userForDisplay->getGameStats()['has_played']) {
-                            echo "<span id='user-status' class='label'>Last Online: ". $userForDisplay->getGameStats()['last_logout'] ."</span>";
+                            echo "<span id='user-status' class='label' style='display: none'>Last Online: ". $userForDisplay->getGameStats()['last_logout'] ."</span>";
                         }
 
                     ?>

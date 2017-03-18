@@ -58,7 +58,7 @@ require 'elements/footer.html';
   
   <script type="text/javascript" src="./assets/js/vendor.js"></script>
   <script type="text/javascript" src="./assets/js/app.js"></script>
-  <script type="text/javascript" src="./assets/js/ibisnet.js"></script>
+  <script type="text/javascript" src="assets/js/index-status.js"></script>
 
 </body>
 </html>

@@ -8,7 +8,7 @@ function convertUptime(uptime) {
         uptime /= 60;
         unit = "minutes";
     } else {
-        uptime /= 60;
+        uptime /= 3600;
         unit = "hours";
     }
 
